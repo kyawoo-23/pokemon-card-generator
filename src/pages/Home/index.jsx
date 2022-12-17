@@ -14,8 +14,6 @@ const HomePage = ({ id }) => {
         fetcher
     )
 
-    console.log("id", id)
-
     let moveId = [0]
     let styles = {
         gradient: {
@@ -37,13 +35,12 @@ const HomePage = ({ id }) => {
                 moveId[1] = Math.floor(Math.random() * movesLength) + 1
             } while (moveId[0] === moveId[1])
         }
-        console.log("move id", moveId)
     }
 
     return (
         <div className="my-8">
             <div
-                className={`w-[35%] mx-auto h-fit py-3 px-5 flex flex-col gap-4 rounded shadow-lg`}
+                className={`w-full sm:w-[70%] md:w-[50%] lg:w-[35%] mx-auto h-fit py-3 px-5 flex flex-col gap-4 rounded shadow-lg`}
                 style={styles.gradient}
             >
                 {!isLoading && !error ? (
@@ -77,7 +74,7 @@ const HomePage = ({ id }) => {
                         ))}
                     </>
                 ) : (
-                    <SkeletonTheme baseColor="#212121" highlightColor="#444">
+                    <SkeletonTheme baseColor="#404040" highlightColor="#444">
                         <Skeleton count={15} />
                     </SkeletonTheme>
                 )}
